@@ -15,11 +15,5 @@ public class Bins {
     public int[] getIncbinArr() {
         return incbinArr;
     }
-
-
-
-
-
-
 }
 

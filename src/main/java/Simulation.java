@@ -27,18 +27,28 @@ public class Simulation {
     }
 
     public void printResults() {
-
+        System.out.printf("**********\n"+"Simulation of '%d' " +
+                "dice tossed for '%d' times\n"+"**********\n\n", numberOfDies, numberOfTosses);
         for (int j = 0; j < numberOfDies * 6 - (numberOfDies - 1); j++) {
-            String percent = String.format("%.2f",(double)binArrPrint[j] / numberOfTosses);
-            System.out.println(j + 2 + " " + binArrPrint[j] +
-                    " " + percent);
+
+            System.out.printf("%2d : %8d: %4.2f %s\n",j + 2, binArrPrint[j], getPercentage(j), getStars(j));
         }
     }
 
+    public Double getPercentage(int j) {
+        Double percent = 0.0;
+        percent = (double)binArrPrint[j] / numberOfTosses;
 
+        return percent;
+    }
 
-
-
+    public String getStars(int j) {
+        String stars = "";
+        Integer percentage = (int)Math.floor(getPercentage(j) * 100);
+        for (int k = 0; k < percentage; k++)
+            stars += "*";
+            return stars;
+    }
 
 
 }
